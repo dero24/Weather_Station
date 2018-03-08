@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+from boto.s3.connection import S3Connection
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SETTINGSKEY')
+SECRET_KEY = S3Connection(os.environ['SETTINGS_KEY'])  #os.environ.get('SETTINGSKEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

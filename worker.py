@@ -4,9 +4,10 @@ import psycopg2.extras
 from datetime import datetime
 import logging
 import os
+from boto.s3.connection import S3Connection
 
 def fetch_data():
-	api_key = os.environ.get('WEATHERAPIKEY')
+	api_key = S3Connection(os.environ['WEATHER_API'])  # os.environ.get('WEATHERAPIKEY')
 
 	url = "http://api.wunderground.com/api/{}/conditions/q/NJ/Oceanport.json".format(api_key)
 	r = requests.get(url).json()
@@ -31,7 +32,7 @@ def fetch_data():
 		logging.exception('Unable to open the database')
 		return
 	else:
-		cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor) # cursor to navigate through the database
+		cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
 	# write data to database
 	cur.execute("""INSERT INTO weatherapp_reading(location, weather, wind_str, temp, humidity, precip, icon_url,
