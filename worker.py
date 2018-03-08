@@ -7,7 +7,9 @@ import os
 from boto.s3.connection import S3Connection
 
 def fetch_data():
-	api_key = S3Connection(os.environ['WEATHER_API'])  # os.environ.get('WEATHERAPIKEY')
+	s3 = S3Connection(os.environ['WEATHER_API'])
+	api_key = s3  # os.environ.get('WEATHERAPIKEY')
+	print
 
 	url = "http://api.wunderground.com/api/{}/conditions/q/NJ/Oceanport.json".format(api_key)
 	r = requests.get(url).json()
