@@ -4,12 +4,9 @@ import psycopg2.extras
 from datetime import datetime
 import logging
 import os
-from boto.s3.connection import S3Connection
 
 def fetch_data():
-	s3 = S3Connection(os.environ['WEATHER_API'])
-	api_key = s3  # os.environ.get('WEATHERAPIKEY')
-	print
+	api_key = os.environ.get('WEATHER_API')  # os.environ.get('WEATHERAPIKEY')
 
 	url = "http://api.wunderground.com/api/{}/conditions/q/NJ/Oceanport.json".format(api_key)
 	r = requests.get(url).json()
