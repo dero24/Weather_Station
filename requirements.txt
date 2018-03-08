@@ -1,5 +1,5 @@
-django=1.11.8=py36hd476221_0
-gunicorn=19.7.1=py36h5d76517_0
-psycopg2=2.7.4=py36hdbc3d79_0
-requests=2.18.4=py36h4516966_1
-whitenoise=3.3.1=py36_0
+django=1.11.8
+gunicorn=19.7.1
+psycopg2=2.7.4
+requests=2.18.4
+whitenoise=3.3.1
