@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <title>A Weather Station App by Robby DeRosa</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css' %}" /><![endif]-->
+    <noscript><link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" /></noscript>
+</head>
+<body>
+
+<!-- Wrapper -->
+<div id="wrapper">
+<!-- Header -->
+    <header id="header">
+        <div class="logo">
+            <img src="{{ data.icon_url }}">
+        </div>
+        <div class="content">
+            <div class="inner">
+                <h1>Weather Station</h1>
+            </div>
+        </div>
+        <nav>
+            <div class="content">
+            <ul>
+                <li><b>Location</b><br> {{ data.location }}</li>
+                <li><b>Currently</b><br> {{ data.weather }}</li>
+                <li><b>Wind</b><br> {{ data.wind_str }}</li>
+                <li><b>Temp</b><br> {{ data.temp }}f</li>
+                <li><b>Humidity</b><br> {{ data.humidity }}</li>
+                <li><b>Precipitation</b><br> {{ data.precip }}</li>
+                <li>{{ data.observation_time }}</li>
+            </ul>
+            </div>
+        </nav>
+    </header>
+    <!--
+    <div class="search-container">
+        <input type="text" placeholder="San Francisco, CA" name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </div> -->
+
+<!-- Footer -->
+<footer id="footer">
+    <p class="copyright">Developed with Django</p>
+</footer>
+
+</div>
+
+<!-- BG -->
+<div id="bg"></div>
+
+
+<!-- Scripts -->
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/skel.min.js' %}"></script>
+<script src="{% static 'assets/js/util.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+</body>
+</html>
