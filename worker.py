@@ -6,7 +6,7 @@ import logging
 import os
 
 def fetch_data():
-	api_key = os.environ.get('WEATHER_API')  # os.environ.get('WEATHERAPIKEY')
+	api_key = os.environ.get('WEATHERAPIKEY')  # os.environ.get('WEATHERAPIKEY')
 
 	url = "http://api.wunderground.com/api/{}/conditions/q/NJ/Oceanport.json".format(api_key)
 	r = requests.get(url).json()
