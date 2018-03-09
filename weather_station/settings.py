@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SETTINGSKEY') # S3Connection(os.environ['SETTINGS_K
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['superweatherforecast.heroku.com']
+ALLOWED_HOSTS = ['superweatherforecast.herokuapp.com']
 
 
 # Application definition
